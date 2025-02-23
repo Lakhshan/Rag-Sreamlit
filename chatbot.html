@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chatbot</title>
+</head>
+<body>
+<div id="chatbot">
+<h1>Chatbot</h1>
+<input type="text" id="userInput" placeholder="Enter your question here...">
+<input type="button" id="submit" value="Submit">
+</div>
+<script>
+// Get the input boxes
+const userInput = document.getElementById("userInput");
+const submitButton = document.getElementById("submit");
+
+// When the submit button is clicked, get the user's question and send it to the chatbot
+submitButton.addEventListener("click", () => {
+const question = userInput.value;
+console.log("User's question: " + question);
+});
+</script>
+
+<style>
+.chat-message {
+    padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; display: flex
+}
+.chat-message.user {
+    background-color: #2b313e
+}
+.chat-message.bot {
+    background-color: #475063
+}
+.chat-message .avatar {
+  width: 20%;
+}
+.chat-message .avatar img {
+  max-width: 78px;
+  max-height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.chat-message .message {
+  width: 80%;
+  padding: 0 1.5rem;
+  color: #fff;
+}
+</style>
+
+<div class="chat-message user">
+    <div class="avatar">
+        <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/corporate-user-icon.svg" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+    </div>    
+    <div class="message">{{MSG}}</div>
+</div>
+
+<div class="chat-message bot">
+    <div class="avatar">
+        <img src="https://st3.depositphotos.com/8950810/17657/v/450/depositphotos_176577880-stock-illustration-cute-smiling-funny-robot-chat.jpg"style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+    </div>
+    <div class="message">{{MSG}}</div>
+</div>
+
+
+<div id="optionSidebar">
+<h1>Options</h1>
+<input type="text" id="inputBox" placeholder="Enter your text here...">
+<input type="radio" id="radioButton1" name="radioButton" value="Option 1">
+<label for="radioButton1">Option 1</label>
+<select id="dropdownTab">
+<option value="Option 1">Option 1</option>
+<option value="Option 2">Option 2</option>
+<option value="Option 3">Option 3</option>
+</select>
+<button id="button">Submit</button>
+</div>
+<script>
+// Get the input boxes, radio buttons, dropdown tab, and button
+const inputBox = document.getElementById("inputBox");
+const radioButton1 = document.getElementById("radioButton1");
+const radioButton2 = document.getElementById("radioButton2");
+const dropdownTab = document.getElementById("dropdownTab");
+const button = document.getElementById("button");
+
+// When the submit button is clicked, get the user's input and send it to the console
+button.addEventListener("click", () => {
+const text = inputBox.value;
+const radioButtonValue = radioButton1.checked ? "Option 1" : "Option 2";
+const dropdownValue = dropdownTab.options[dropdownTab.selectedIndex].value;
+console.log("User's input: " + text + ", Radio button value: " + radioButtonValue + ", Dropdown value: " + dropdownValue);
+});
+</script>
+</body>
+</html>
+
+<style>
+#chatbot {
+width: 400px;
+margin: 0 auto;
+}
+
+#userInput {
+width: 300px;
+}
+
+#submit {
+width: 100px;
+}
+
+#optionSidebar {
+width: 400px;
+margin: 0 auto;
+}
+
+#inputBox {
+width: 300px;
+}
+
+#radioButton1, #radioButton2 {
+width: 100px;
+}
+
+#dropdownTab {
+width: 150px;
+}
+
+#button {
+width: 100px;
+}
+</style>
